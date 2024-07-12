@@ -6,7 +6,7 @@ const NotesList = ({ notes }) => {
   return (
     <div className='p-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
       {notes.map(n => (
-        <NoteCard key={n._id} note={n} />
+        <NoteCard key={n._id} note={n} notes={notes}/>
       ))}
     </div>
   );

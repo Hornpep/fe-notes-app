@@ -5,7 +5,40 @@ const NotesAISummary = ({ notes }) => {
   const resultsRef = useRef();
   const [stream, setStream] = useState(false);
 
-  const handleAISummary = async () => {};
+  const handleAISummary = async () => {
+    try  {
+      const response = await fetch('https://gen-ai-wbs-consumer-api.onrender.com/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'g678y5kyrcibmulz71y4r',
+          'provider': 'open-ai',
+          'mode': 'production',
+      },
+      body: JSON.stringify({
+        'model': 'gpt-4o',
+        'stream': stream,
+        'messages': [
+          {
+            'role': 'user',
+            'content': 'Create a summary of my notes but you only speak in haiku: ' + notes.content
+          }
+        ]
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch the summary');
+    }
+
+
+    const data = await response.json();
+
+
+  } catch (error) {
+    console.error('Error while fetching summary:', error);
+  } 
+}
 
   return (
     <>

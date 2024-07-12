@@ -21,7 +21,7 @@ const SchoolNotes = () => {
     <>
       <NotesList notes={notes} />
       <CreateNote setNotes={setNotes} />
-      <NotesAISummary notes={notes} />
+      {/* <NotesAISummary notes={notes} /> */}
     </>
   );
 };

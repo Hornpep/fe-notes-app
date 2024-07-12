@@ -1,3 +1,6 @@
+import NotesAISummary from "./NotesAISummary";
+import { useState } from "react";
+
 const NoteCard = ({ note }) => {
   return (
     <div className='card bg-base-100 shadow-xl'>
@@ -7,6 +10,9 @@ const NoteCard = ({ note }) => {
       <div className='card-body h-56'>
         <h2 className='card-title'>{note.title}</h2>
         <p className='truncate text-wrap'>{note.content}</p>
+      </div>
+      <div className="card">
+        <NotesAISummary notes={note.content} />
       </div>
     </div>
   );

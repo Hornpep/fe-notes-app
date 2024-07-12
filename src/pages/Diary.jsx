@@ -21,7 +21,7 @@ const Diary = () => {
     <>
       <EntriesList entries={entries} />
       <CreateEntry setEntries={seEntries} />
-      <MoodAIAnalysis entries={entries} />
+      {/* <MoodAIAnalysis entries={entries} /> */}
     </>
   );
 };
